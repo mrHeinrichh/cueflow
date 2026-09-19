@@ -20,8 +20,8 @@ Browser and desktop libraries are separate. Export a library backup and import i
 
 | Platform | Package |
 | --- | --- |
-| macOS 12+ Apple Silicon | `CueFlow-1.0.0-mac-arm64.dmg` and ZIP |
-| macOS 12+ Intel | `CueFlow-1.0.0-mac-x64.dmg` and ZIP |
+| macOS 13+ Apple Silicon | `CueFlow-1.0.0-mac-arm64.dmg` and ZIP |
+| macOS 13+ Intel | `CueFlow-1.0.0-mac-x64.dmg` and ZIP |
 | Windows 10+ x64 | `CueFlow-1.0.0-win-x64.exe` |
 
 **Initial builds are unsigned and not notarized.** Operating systems may show publisher/security warnings. Publisher certificates and Apple notarization are not configured. Download only from this repository’s releases; compare against `SHA256SUMS.txt` if needed. The browser app is available without installing a package.

@@ -15,6 +15,7 @@ files:
   - '!electron/**/*.test.cjs'
 mac:
   category: public.app-category.productivity
+  minimumSystemVersion: '13.0.0'
   icon: build/icon.icns
   identity: null
   notarize: false
