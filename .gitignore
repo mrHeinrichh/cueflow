@@ -1,0 +1,12 @@
+node_modules/
+dist/
+release/
+.netlify/
+.sites-runtime/
+output/
+*.tsbuildinfo
+.DS_Store
+.env
+.env.*
+!.env.example
+.playwright-cli/

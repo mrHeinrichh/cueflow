@@ -1,0 +1,57 @@
+appId: studio.cueflow.desktop
+productName: CueFlow
+copyright: Copyright © 2026 CueFlow contributors
+asar: true
+npmRebuild: false
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - electron/**/*
+  - build/icon.png
+  - package.json
+  - '!**/*.map'
+  - '!electron/**/*.test.cjs'
+mac:
+  category: public.app-category.productivity
+  icon: build/icon.icns
+  identity: null
+  notarize: false
+  target:
+    - target: dmg
+      arch: [arm64, x64]
+    - target: zip
+      arch: [arm64, x64]
+  artifactName: '${productName}-${version}-mac-${arch}.${ext}'
+dmg:
+  title: '${productName} ${version}'
+  format: UDZO
+  window:
+    width: 560
+    height: 380
+  contents:
+    - x: 150
+      y: 170
+    - x: 410
+      y: 170
+      type: link
+      path: /Applications
+win:
+  icon: build/icon.ico
+  target:
+    - target: nsis
+      arch: [x64]
+  artifactName: '${productName}-${version}-win-${arch}.${ext}'
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: CueFlow
+  deleteAppDataOnUninstall: false
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+publish: null
