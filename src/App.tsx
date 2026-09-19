@@ -50,7 +50,7 @@ export default function App() {
  const editScript=(patch:Partial<Script>)=>{pause();setScripts(all=>all.map(s=>s.id===active.id?{...s,...patch,updated:Date.now()}:s));};
  const createScript=()=>{if(scripts.length>=500){notify('Your library has reached 500 scripts. Export a backup and remove a few scripts first.');return;}const script={id:crypto.randomUUID(),title:'Untitled script',content:'',updated:Date.now()};setScripts(s=>[script,...s]);selectScript(script.id);setTab('edit');location.hash='/studio';};
  const fullscreen=async()=>{try{if(window.cueflowDesktop){await window.cueflowDesktop.setFullscreen(!full);setFull(!full);}else if(document.fullscreenElement){await document.exitFullscreen();}else{await stage.current?.requestFullscreen();}}catch{notify('Fullscreen is unavailable here. Try the desktop app or another browser.');}};
- useEffect(()=>{const onHash=()=>{reset();setRoute(location.hash==='#/download'?'download':'studio');};window.addEventListener('hashchange',onHash);return()=>window.removeEventListener('hashchange',onHash);},[]);
+ useEffect(()=>{const onHash=()=>{reset();setSidebar(false);setRoute(location.hash==='#/download'?'download':'studio');};window.addEventListener('hashchange',onHash);return()=>window.removeEventListener('hashchange',onHash);},[]);
  useEffect(()=>{try{localStorage.setItem('cueflow.scripts',JSON.stringify(scripts));setSaveError(false);}catch{setSaveError(true);}},[scripts]);
  useEffect(()=>{try{localStorage.setItem('cueflow.settings',JSON.stringify(settings));}catch{notify('Display settings could not be saved on this device.');}},[settings]);
  useEffect(()=>{if(!toast)return;const id=setTimeout(()=>setToast(''),5000);return()=>clearTimeout(id);},[toast]);
